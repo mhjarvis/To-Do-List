@@ -1,1 +1,4 @@
-console.log("Hello");
+import { note } from './item.js'
+
+
+note();

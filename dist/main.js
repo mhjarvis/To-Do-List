@@ -1,1 +1,1 @@
-console.log("Hello");
+(()=>{"use strict";console.log("Hello from item.js")})();
