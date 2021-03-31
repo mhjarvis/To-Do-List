@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("Hello from item.js")})();
+(()=>{"use strict";(()=>{const e=document.getElementById("container"),t=document.createElement("section"),n=document.createElement("h1");t.id="header",e.appendChild(t);const o=document.getElementById("header");n.id="page-title",n.innerHTML="To-Do List Project",o.appendChild(n)})(),console.log("Hello from item.js")})();
