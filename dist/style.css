@@ -50,6 +50,10 @@ table {
 	border-spacing: 0;
 }
 
+#container {
+
+}
+
 /* Heading Element */
 
 #header {
@@ -65,4 +69,30 @@ table {
     color: white;
     font-size: 4vh;
     font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Side Bar Element */
+
+#side-bar {
+    position: fixed;
+    float: left;
+    width: 25%;
+    min-height: 100%;
+    top: 0;
+    bottom: 0;
+    margin-top: 6vh;
+    background-color: #388697;
+}
+
+#new-project-button {
+    position: absolute;
+    right: .5em;
+    background-color: #388697;
+    border-style: none;
+    font-size: 2em;
+    font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#new-project-button:hover {
+    color: white;
 }

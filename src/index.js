@@ -1,5 +1,6 @@
 import { header } from './header'
-import { note } from './item.js'
+import { projectButton, sideBar } from './side-bar'
 
 header();
-note();
+sideBar();
+projectButton();
