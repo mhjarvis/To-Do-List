@@ -51,7 +51,7 @@ table {
 }
 
 #container {
-
+    width: 100%;
 }
 
 /* Heading Element */
@@ -61,38 +61,56 @@ table {
     align-items: center;
     justify-content: left;
     padding-left: 4vh;
-    height: 6vh;
+    height: 6vw;
+    min-height: 7vh;
+    max-height: 7vw;
     background-color: #08415C;
 }
 
 #page-title {
     color: white;
-    font-size: 4vh;
+    font-size: 5vh;
     font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Side Bar Element */
 
 #side-bar {
-    position: fixed;
-    float: left;
+
+    position: absolute;
+    height: 100%;
     width: 25%;
-    min-height: 100%;
-    top: 0;
-    bottom: 0;
-    margin-top: 6vh;
+    left: 0;
     background-color: #388697;
 }
 
 #new-project-button {
-    position: absolute;
-    right: .5em;
+    width: 100%;
+    padding: 5px 0;
     background-color: #388697;
     border-style: none;
-    font-size: 2em;
+    font-size: 3vh;
     font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: dashed black ;
 }
 
 #new-project-button:hover {
     color: white;
+}
+
+/* Note Section */
+
+#note-section {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 75%;
+    right: 0;
+    background-color: #B5FFE1;
+}
+
+#inner-note-box {
+    background-color: black;
+    width: 100%;
+    margin: 3vh 2vh;
 }
