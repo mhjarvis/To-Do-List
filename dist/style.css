@@ -87,6 +87,7 @@ table {
 #new-project-button {
     width: 100%;
     padding: 5px 0;
+    margin-bottom: 0.5em;
     background-color: #388697;
     border-style: none;
     font-size: 3vh;
@@ -96,6 +97,24 @@ table {
 
 #new-project-button:hover {
     color: white;
+}
+
+#project-list {
+    display: flex;
+    flex-flow: column;
+}
+
+.ind-project {
+    background-color: #388697;
+    border: none;
+    padding: .2em 0;
+    font-size: 2.0vh;
+    color: white;
+    font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.ind-project:hover {
+    color: black;
 }
 
 /* Note Section */
@@ -110,7 +129,21 @@ table {
 }
 
 #inner-note-box {
-    background-color: black;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 100%;
-    margin: 3vh 2vh;
+    margin: 1vh 1vh;
+}
+
+/* Individual Notes */
+
+#note {
+    display:flex;
+    background-color: #FF686B;
+    width: 100%;
+    height: 4vw;
+    min-height: 2em;
+    margin-top: .4em;
+    border-radius: 16px;
 }

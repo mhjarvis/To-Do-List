@@ -1,17 +1,15 @@
 import { header } from './header'
-import { projectButton, sideBar } from './side-bar'
+import { projectButton, sideBar, display } from './side-bar'
 import { noteSection } from './note-section'
-// import { note } from './note'
+import { note } from './note'
 
 
 header();
 sideBar();
 projectButton();
+display();
 noteSection();
-
-
-
-
+note();
 
 /* Add new project to list */
 
