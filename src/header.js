@@ -1,3 +1,4 @@
+/* Create heading element of webpage */
 const header = () => {
     
     const container = document.getElementById('container');

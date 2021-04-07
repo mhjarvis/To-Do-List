@@ -28,98 +28,51 @@ const sideBar = () => {
     sideBar.appendChild(button);
 }
 
-const display = () => {
-
-    let p = new Project("Chores", ["Take out Trash", "Clean sink"]);
-    let n = new Project("Workout", ["Biceps Curl", "Triceps Press"]);
-
-    projectArray.push(p);
-    projectArray.push(n);
-
-    console.log(projectArray);
+/* Display indidividual projects as they are created */
+const displayProjects = () => {
 
     const side = document.getElementById('side-bar');
     const div = document.createElement('div');
     div.id = "project-list"
     side.appendChild(div);
 
+    /* Iterate through array to print individual projects */
     for(let i = 0; i < projectArray.length; i++) {
 
         const projectList = document.getElementById('project-list');
+
+        /* Create button for each project in projectArray */
         const button = document.createElement('button');
         let ident = projectArray[i].title.toLowerCase();
         button.id = ident;
         button.className = "ind-project";
         button.innerHTML = projectArray[i].title;
         projectList.appendChild(button);
-        
+
+    //     /* Create button to delete indiviual projects */
+    //     const deleteButton = document.createElement('button');
+    //     deleteButton.id = ident + "-delete";
+    //     deleteButton.className = "delete-project-button";
+    //     deleteButton.innerHTML = "x";
+    //     button.append(deleteButton);        
+    // 
+    console.log(projectArray);
     }
 }
 
-// const displayProjects = () => {
+/* Delete Project from side-bar based on project title*/
+const deleteProject = (title) => {
+    projectArray = projectArray.filter(function(el) {
+        return el.title != title;
+    });
+}
 
-//     let projects = [];
+let p = new Project("Chores", ["Take out Trash", "Clean sink"]);
+let n = new Project("Workout", ["Biceps Curl", "Triceps Press"]);
 
-//     const showProjects = () => {
+projectArray.push(p);
+projectArray.push(n);
 
-//         const sideBar = document.getElementById('side-bar');
-//         const ul = document.createElement('ul');
-//         ul.id = "project-list";
-//         sideBar.appendChild(ul);
+//deleteProject("Workout");         //test delete
 
-//         for(let i = 0; i < projects.length; i++) {
-
-//             const projectList = document.getElementById('project-list');
-//             const li = document.createElement('li');
-//             li.id = "project" + i;
-//             projectList.appendChild(li);
-
-//         }
-
-//     };
-
-
-
-
-
-    // // Add new project
-    // const addProject = (name) => {
-    //     projects.push(name);
-    //     console.log(projects);
-    // }
-
-    // addProject("Default");
-    // showProjects();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export { sideBar, projectButton, display}
+export { sideBar, displayProjects }
