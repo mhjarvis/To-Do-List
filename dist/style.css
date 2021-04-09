@@ -147,6 +147,11 @@ table {
     margin: 1vh 1vh;
 }
 
+.delete-project-class {
+    position: absolute;
+    bottom: 0;
+}
+
 /* Individual Notes */
 
 #note {
@@ -157,4 +162,5 @@ table {
     min-height: 2em;
     margin-top: .4em;
     border-radius: 16px;
+    max-height: 40px;
 }

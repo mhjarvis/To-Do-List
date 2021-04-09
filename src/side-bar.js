@@ -1,3 +1,4 @@
+import { createTask } from './note-section'
 /* Project class for creating projects and to-do lists */
 /* List items will be stored in array as part of the Project objects */
 class Project {
@@ -9,6 +10,17 @@ class Project {
 
 /* Create array to hold projects and project to-do list */
 let projectArray = [];
+let p = new Project("Chores", ["Take out Trash", "Clean sink"]);
+let n = new Project("Workout", ["Biceps Curl", "Triceps Press"]);
+
+projectArray.push(p);
+projectArray.push(n);
+
+/* Set activeProject to the first project in projectArray */
+let activeProject = projectArray[0];
+
+console.log(activeProject.tasks);
+
 
 /* Creates sidebar and 'new project' button and adds it to document */
 const sideBar = () => {
@@ -56,9 +68,19 @@ const displayProjects = () => {
     //     deleteButton.innerHTML = "x";
     //     button.append(deleteButton);        
     // 
-    console.log(projectArray);
     }
 }
+
+const addTask = (name) => {
+    activeProject.tasks.push(name);
+    console.log(activeProject.tasks);
+}
+
+//addTask("Do nothing");
+createTask("Poop", "Go Poop");
+
+console.log(activeProject.tasks);
+
 
 /* Delete Project from side-bar based on project title*/
 const deleteProject = (title) => {
@@ -67,12 +89,14 @@ const deleteProject = (title) => {
     });
 }
 
-let p = new Project("Chores", ["Take out Trash", "Clean sink"]);
-let n = new Project("Workout", ["Biceps Curl", "Triceps Press"]);
+function getActiveProject() {
+    return activeProject;
+}
 
-projectArray.push(p);
-projectArray.push(n);
+const clearProject = (p) => {
+    p.tasks = [];
+}
 
 //deleteProject("Workout");         //test delete
 
-export { sideBar, displayProjects }
+export { sideBar, displayProjects, deleteProject, addTask, getActiveProject }
