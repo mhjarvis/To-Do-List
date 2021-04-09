@@ -1,6 +1,6 @@
 import { header } from './header'
 import { sideBar, displayProjects } from './side-bar'
-import { noteSection } from './note-section'
+import { noteSection } from './main'
 import { note } from './note'
 
 header();

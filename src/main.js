@@ -35,12 +35,12 @@ const noteSection = () => {
     div.id = "inner-note-box";
     noteSection.appendChild(div);
 
-    /* Delete button to delete project */
-    const button = document.createElement('button');
-    button.id = "delete-project";
-    button.className = "delete-project-class";
-    button.innerHTML = "delete project";
-    noteSection.appendChild(button);
+    // /* Delete button to delete project */
+    // const button = document.createElement('button');
+    // button.id = "delete-project";
+    // button.className = "delete-project-class";
+    // button.innerHTML = "delete project";
+    // noteSection.appendChild(button);
 }
 
 export { noteSection, createTask }
