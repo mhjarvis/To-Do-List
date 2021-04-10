@@ -180,6 +180,18 @@ table {
     font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#close-form-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vw;
+    font-size: 2vw;
+    background-color: black;
+    color: white;
+    border: none;
+    font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 /* Note Section */
 
 #note-section {
@@ -206,7 +218,7 @@ table {
 
 /* Individual Notes */
 
-#note {
+.note {
     display:flex;
     background-color: #FF686B;
     width: 100%;
@@ -215,4 +227,14 @@ table {
     margin-top: .4em;
     border-radius: 16px;
     max-height: 40px;
+}
+
+.note-title {
+    display: flex;
+    align-items: center;
+    margin-left: 2vw;
+    font-size: 2.5vw;
+    color: black;
+
+    font-family: Lobster, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

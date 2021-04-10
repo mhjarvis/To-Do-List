@@ -1,4 +1,5 @@
-import { createTask } from './main'
+import { createTask, noteSection } from './main'
+
 
 /* Project class for creating projects and to-do lists */
 /* List items will be stored in array as part of the Project objects */
@@ -12,7 +13,6 @@ class Project {
 
 /* Create array to hold projects and project to-do list */
 let projectArray = [];
-
 let p = new Project("Chores", ["Take out Trash", "Clean sink"]);
 let n = new Project("Workout", ["Biceps Curl", "Triceps Press"]);
 
@@ -46,8 +46,9 @@ const sideBar = () => {
 }
 
 /* Display indidividual projects as they are created */
-const displayProjects = () => {
+function displayProjects() {
 
+    //let projectArray = JSON.parse(localStorage.getItem("projectArray"));
     const side = document.getElementById('side-bar');
     const div = document.createElement('div');
     div.id = "project-list"
@@ -81,8 +82,6 @@ const displayProjects = () => {
     }
 }
 
-createTask("Poop", "Go Poop");
-
 /* Add new task to active project's task array */
 function addTask(name) {
     activeProject.tasks.push(name);
@@ -91,11 +90,23 @@ function addTask(name) {
 
 /* Delete Project from side-bar based on project title*/
 function deleteProject(title) {
+
     projectArray = projectArray.filter(function(el) {
         return el.title != title;
     });
-    clearSideBar();     //clear side-bar contents
-    displayProjects();  //rebuild side-bar
+    rebuild();
+}
+
+/* Clear form */
+function clearForm() {
+    let element = document.getElementById('project-form');
+    element.parentNode.removeChild(element);
+}
+
+/* Rebuild side-bar, project sectio */
+function rebuild() {
+    clearSideBar();
+    displayProjects();
 }
 
 function getActiveProject() {
@@ -110,14 +121,12 @@ function clearSideBar() {
 
 /* Shows the new project form when clicking on 'new project' button */
 function launchProjectForm() {
-    console.log("Project Form is linked");
 
     const container = document.getElementById('container');
     const form = document.createElement('form');
 
     /* Create form element */
     form.id = 'project-form';
-    form.style.display = "hidden";
     container.appendChild(form);
 
     /* Create form header */
@@ -136,17 +145,47 @@ function launchProjectForm() {
     const button = document.createElement('button');
     button.id = 'project-form-submit';
     button.innerHTML = 'Submit';
+    button.type = 'button';
     getForm.appendChild(button);
 
-    /* Button event listner */
+    /* Close Form Button */
+    const closeFormButton = document.createElement('button');
+    closeFormButton.id = 'close-form-button';
+    closeFormButton.innerHTML = 'close';
+    closeFormButton.type = 'button';
+    getForm.appendChild(closeFormButton);
+
+    /* Submit button event listner */
     document.getElementById('project-form-submit').addEventListener("click", 
-    function() {
-        submitProjectForm();
-    });  
+        function() {
+            submitProjectForm();
+        }
+    );  
+
+    /* Close form event listner */
+    document.getElementById('close-form-button').addEventListener("click",
+        function() {
+            clearForm();
+        }
+    );
 }
 
+/* Close project form and create new project object */
 function submitProjectForm() {
+
     document.getElementById('project-form').style.display = "none";
+    const titleInput = document.getElementById('project-input-name');
+    let title = titleInput.value;
+
+    let newProject = new Project(title);
+    projectArray.push(newProject);
+
+    clearForm();
+    rebuild();
 }
 
-export { sideBar, displayProjects, deleteProject, addTask, getActiveProject }
+function getProjectArray() {
+    return projectArray;
+}
+
+export { sideBar, displayProjects, getProjectArray, addTask, getActiveProject }

@@ -10,4 +10,4 @@ noteSection();
 
 /* Show temp projects and list items */
 displayProjects();
-note();
+//note();
