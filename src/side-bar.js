@@ -38,6 +38,11 @@ const sideBar = () => {
     button.id = "new-project-button";
     button.innerHTML = "+ new project"
     sideBar.appendChild(button);
+
+    document.getElementById("new-project-button").addEventListener("click", 
+        function() {
+            launchProjectForm();
+        });
 }
 
 /* Display indidividual projects as they are created */
@@ -72,14 +77,13 @@ const displayProjects = () => {
         document.getElementById(ident).addEventListener("click", 
             function() {
                 deleteProject(projectArray[i].title);
-            }
-        );      
+            });      
     }
 }
 
 createTask("Poop", "Go Poop");
 
-
+/* Add new task to active project's task array */
 function addTask(name) {
     activeProject.tasks.push(name);
     console.log(activeProject.tasks);
@@ -98,9 +102,51 @@ function getActiveProject() {
     return activeProject;
 }
 
+/* Reset side-bar inner-html for rebuilding */
 function clearSideBar() {
     let x = document.getElementById('project-list');
     x.innerHTML = "";
+}
+
+/* Shows the new project form when clicking on 'new project' button */
+function launchProjectForm() {
+    console.log("Project Form is linked");
+
+    const container = document.getElementById('container');
+    const form = document.createElement('form');
+
+    /* Create form element */
+    form.id = 'project-form';
+    form.style.display = "hidden";
+    container.appendChild(form);
+
+    /* Create form header */
+    const getForm = document.getElementById('project-form');
+    const h1 = document.createElement('h1');
+    h1.id = 'project-form-title';
+    h1.innerHTML = 'Project Name:';
+    getForm.appendChild(h1);
+
+    /* Create form input field */
+    const input = document.createElement('input');
+    input.id = 'project-input-name';
+    getForm.appendChild(input);
+
+    /* Submit button */
+    const button = document.createElement('button');
+    button.id = 'project-form-submit';
+    button.innerHTML = 'Submit';
+    getForm.appendChild(button);
+
+    /* Button event listner */
+    document.getElementById('project-form-submit').addEventListener("click", 
+    function() {
+        submitProjectForm();
+    });  
+}
+
+function submitProjectForm() {
+    document.getElementById('project-form').style.display = "none";
 }
 
 export { sideBar, displayProjects, deleteProject, addTask, getActiveProject }
